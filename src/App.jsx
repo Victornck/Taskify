@@ -4,26 +4,7 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "Estudar Programação",
-      description: "Estudar react para melhorar!",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      title: "Estudar Ingles",
-      description: "Estudar react para melhorar!",
-      isCompleted: false,
-    },
-    {
-      id: 3,
-      title: "Estudar Espanhol",
-      description: "Estudar react para melhorar!",
-      isCompleted: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
 
   function OnTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
