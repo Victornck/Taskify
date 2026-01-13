@@ -1,10 +1,16 @@
 import AddTasks from "./Components/AddTasks";
 import Tasks from "./Components/Tasks";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([
+    JSON.parse(localStorage.getItem("tasks")) || [],
+  ]);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   function OnTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
