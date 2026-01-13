@@ -31,7 +31,7 @@ function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
 
           <button
             onClick={() => onDeleteTaskClick(task.id)}
-            className=" bg-slate-600 p-2 rounded-md text-white"
+            className=" bg-red-900 p-2 rounded-md text-white"
           >
             <Trash2 />
           </button>
