@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
   const navigate = useNavigate();
   function onSeeDetailsClick(task) {
-    const query = new URLSearchParams();
-    query.set("title", task.title);
-    query.set("description", task.description);
-    navigate(`/task?${query.toString()}`);
+    navigate(`/task?id=${task.id}`, {
+      state: { task },
+    });
   }
 
   return (

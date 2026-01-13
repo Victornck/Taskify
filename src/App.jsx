@@ -4,9 +4,10 @@ import "./App.css";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    JSON.parse(localStorage.getItem("tasks")) || [],
-  ]);
+  const [tasks, setTasks] = useState(() => {
+    const storedTasks = localStorage.getItem("tasks");
+    return storedTasks ? JSON.parse(storedTasks) : [];
+  });
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -31,7 +32,7 @@ function App() {
 
   function onAddTaskSubmit(title, description) {
     const newTask = {
-      id: tasks.length + 1,
+      id: Date.now(),
       title,
       description,
       isCompleted: false,
